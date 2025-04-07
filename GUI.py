@@ -49,7 +49,7 @@ class BreachedPasswordsApp:
             error_frame.pack(side=tk.TOP, fill=tk.X, padx=10, pady=10)
 
             ttk.Label(error_frame,
-                      text="⚠️ Database connection is not available. Some features may be limited.",
+                      text="Database connection is not available.",
                       foreground="red").pack(pady=5)
 
     def _setup_password_tab(self):
@@ -276,14 +276,14 @@ class BreachedPasswordsApp:
             self.encryption_listbox.insert(tk.END, "Database connection not available")
             return
 
-        encryption_methods = self.db.get_encryption_methods()
+        '''encryption_methods = self.db.get_encryption_methods()
         if encryption_methods:
             for method in encryption_methods:
                 self.encryption_listbox.insert(tk.END, method['Name'])
                 self.encryption_names.append(method['Name'])
         else:
             self.encryption_listbox.insert(tk.END, "No encryption methods available")
-
+        '''
     def _on_encryption_selected(self, event):
         # Add this method to handle encryption method selection
         selection = self.encryption_listbox.curselection()
